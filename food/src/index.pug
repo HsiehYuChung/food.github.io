@@ -1,0 +1,44 @@
+.container
+  //- header
+  //-   h1 旋轉轉盤
+  //-   h2 積分天天送
+  //-   p 今日抽獎機會還有
+  //-     span 10
+  section.turntable
+    div.list
+      ul
+    button.turntable_btn(type="button") GO
+    svg(viewbox="-50 -50 100 100")
+      g.bottom
+        ellipse(cx=0 cy=40 rx=30 ry=4)
+      g.polyline
+        polyline(points="-16,-38 16,-38 0,0")
+        polyline(points="16,-38 38,-16 0,0")
+        polyline(points="38,-16 38,16 0,0")
+        polyline(points="0,0 38,16 16,38")
+        polyline(points="0,0 16,38 -16,38")
+        polyline(points="0,0 -16,38 -38,16")
+        polyline(points="-38,-16 -38,16 0,0")
+        polyline(points="-16,-38 -38,-16 0,0")
+      circle(cx=0 cy=0 r=40)
+      g.circle
+        circle(cx=0 cy=-40 r=0.8)
+        circle(cx=15.6 cy=-36.8 r=0.8)
+        circle(cx=28.5 cy=-28 r=0.8)
+        circle(cx=36.8 cy=-15.6 r=0.8)
+        circle(cx=40 cy=0 r=0.8)
+        circle(cx=36.8 cy=15.6 r=0.8)
+        circle(cx=28.5 cy=28 r=0.8)
+        circle(cx=15.6 cy=36.8 r=0.8)
+        circle(cx=0 cy=40 r=0.8)
+        circle(cx=-36.8 cy=15.6 r=0.8)
+        circle(cx=-28.5 cy=28 r=0.8)
+        circle(cx=-15.6 cy=36.8 r=0.8)
+        circle(cx=-40 cy=0 r=0.8)
+        circle(cx=-36.8 cy=-15.6 r=0.8)
+        circle(cx=-28.5 cy=-28 r=0.8)
+        circle(cx=-15.6 cy=-36.8 r=0.8)
+      g.mark
+        circle(cx=0 cy=-43 r=4)
+        polyline(points="-3.5,-41 3.5,-41 0,-35")
+        circle.round(cx=0 cy=-43 r=1.5)

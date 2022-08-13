@@ -1,0 +1,188 @@
+$font-size: 14px 
+$color_white: #fff
+$turntable_bg: #0080C0
+$turntable_btn: #FFB10F
+$body_bg: #3DBFBB
+
+@mixin bold
+  font-weight: bold
+  
+@mixin center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  
+@mixin btn_reset
+  box-shadow: none
+  border: none
+  outline: none  
+  
+@keyframes shiny
+  0%
+    fill: lighten($turntable_btn,50%)
+  50%
+    fill: lighten($turntable_btn,10%)
+  100%
+    fill: lighten($turntable_btn,50%)
+  
+@keyframes go
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+  
+//--------------------------------------
+
+*
+  padding: 0
+  margin: 0
+  font-family: '微軟正黑體'
+  // outline: 1px solid #000
+
+body
+  background-color: $body_bg
+
+.container
+  max-width: 1000px
+  min-width: 400px
+  margin: 0 auto
+  overflow: hidden
+  
+header
+  text-align: center
+  padding: 50px
+  // h1
+  //   color: $lottery_bg
+  //   font-size: $font-size*3
+  //   letter-spacing: 1px
+  // h2
+  //   color: lighten($lottery_bg,35%)
+  // p
+  //   padding-top: 20px
+  //   span
+  //     font-size: $font-size*2
+  //     font-weight: bold
+  //     margin: 0 5px
+      
+section.turntable
+  position: relative
+  max-width: 1000px
+  max-height: 1000px
+  button.turntable_btn
+    +center
+    +btn_reset
+    font-weight: 900
+    width: 30%
+    height: 30%
+    border-radius: 50%
+    font-size: $font-size*5
+    color: $turntable_bg
+    background-color: lighten($turntable_btn,5%)
+    cursor: pointer
+    &:active,&:disabled
+      cursor: default
+      &::after
+        box-shadow: none
+        margin-top: 2px
+        // border: 1px solid darken($turntable_btn,10%)
+        background-color: lighten($turntable_btn,25%)
+    &::after
+      +center
+      content: ''
+      width: 80%
+      height: 80%
+      border-radius: 50%
+      background-color: lighten($turntable_btn,30%)
+      z-index: -1
+      // border: 2px solid darken($turntable_btn,10%)
+      box-shadow: 1px 2px 4px darken($turntable_btn,30%)
+    @media screen and (max-width: 767px)
+      font-size: $font-size*3
+  div.list
+    +center
+    box-shadow: none
+  div.list
+    +center
+    border-radius: 50%
+    width: 70%
+    height: 70%
+    text-align: center
+    ul
+      list-style: none     
+      width: 100%
+      height: 100%
+      transform: rotate(0deg)
+      &.go
+        animation: go .8s linear 4
+        -webkit-animation: go .8s linear 4
+      li
+        color: #fff
+        font-size: $font-size*1.6
+        position: absolute
+        width: 100%
+        height: 100%
+        &:nth-child(2)
+          transform: rotate(315deg)
+        &:nth-child(3)
+          transform: rotate(270deg)
+        &:nth-child(4)
+          transform: rotate(225deg)
+        &:nth-child(5)
+          transform: rotate(180deg)
+        &:nth-child(6)
+          transform: rotate(135deg)
+        &:nth-child(7)
+          transform: rotate(90deg)
+        &:nth-child(8)
+          transform: rotate(45deg)
+        @media screen and (max-width: 767px)
+          font-size: $font-size
+        img
+          width: 70px
+          margin-top: 5px
+          @media screen and (max-width: 767px)
+            width: 40px
+          @media screen and (max-width: 400px)
+            display: none
+  svg
+    > circle
+      fill: none
+      stroke: darken($turntable_bg,5%)
+      stroke-width: 5px
+    g.polyline
+      &.go
+        animation: go .8s linear 4
+        -webkit-animation: go .8s linear 4
+      polyline
+        fill: $turntable_bg
+        &:nth-child(odd)
+          fill: lighten($turntable_bg,10%)
+    g.circle
+      circle
+        fill: $color_white
+        stroke: none
+        box-shadow: 0px 2px 5px #ccc
+        &:nth-child(odd)
+          animation: shiny .8s linear infinite
+          -webkit-animation: shiny .8s linear infinite
+          &.go
+            animation: go .8s linear 4, shiny .8s linear infinite
+            -webkit-animation: go .8s linear 4, shiny .8s linear infinite
+        &:nth-child(even)
+          animation: shiny .8s 0.5s linear infinite
+          -webkit-animation: shiny .8s 0.5s linear infinite
+          &.go
+            animation: go .8s .8s linear 4, shiny .8s 0.5s linear infinite
+            -webkit-animation: go .8s linear 4, shiny .8s 0.5s linear infinite
+    g.mark
+      circle
+        fill: $turntable_btn
+        &.round
+          fill: none
+          stroke: lighten($turntable_btn,35%)
+      polyline
+        fill: $turntable_btn
+        stroke: none
+    g.bottom
+      fill: rgba(0,0,0,0.4)
