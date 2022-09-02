@@ -1,20 +1,20 @@
 //獎品項目
 var prize_list = [
   {
-    name: "披薩",
+    name: "拉麵",
     //img: "https://cdn-icons-png.flaticon.com/512/1405/1405225.png"
-    img: "https://mevishcafe.com.ng/wp-content/uploads/2021/08/Pizza.jpg"
+    img: "https://i.pinimg.com/474x/1d/af/a5/1dafa5a3aafd616e4cfea3f87f07a105.jpg"
   },
   {
-    name: "牛排",
-    img: "https://img.bigfang.tw/2017/09/1504440172-fad1cee74fb4709a939801399f3eb63c.jpg"
+    name: "麥當勞",
+    img: "https://i.pinimg.com/474x/89/3e/b9/893eb9b2ff54f3da0685196b86758f4e.jpg"
   },
   {
     name: "鍋貼",
     img: "http://pic.pimg.tw/tassmania/normal_4a125072b16f8.jpg"
   },
   {
-    name: "7-11",
+    name: "便利商店",
     img: "https://s3.goodlife.tw/system/company/logos/13/small_original_7-11.jpg"
   },
   {
@@ -30,8 +30,8 @@ var prize_list = [
     img: "https://pic.pimg.tw/etliaw/1628657551-3958863848-g_m.jpg"
   },
   {
-    name: "再轉一次",
-    img: "https://memeprod.sgp1.digitaloceanspaces.com/user-resource/223c479676b6a608c450bb125de0578a.png"
+    name: "韓式料理",
+    img: "https://i.pinimg.com/474x/2e/c7/c9/2ec7c93588cac480290938f71eaafdfa.jpg"
   },
 ]
 
@@ -65,8 +65,10 @@ $(".turntable_btn").on("click", function(){
         var prize = $(".list").find("li").eq(iEnd).find("p").html().replace("<br>","");
         // console.log(prize);
         alert('就決定吃：'+ prize +'了吧!!');
+        
+        window.open(' https://www.google.com.tw/maps/search/'+ prize +'');
     }, 4200);
-
+    
 });
 
 function rotating()
